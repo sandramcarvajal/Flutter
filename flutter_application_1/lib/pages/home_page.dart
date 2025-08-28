@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/models/user_model.dart';
+import 'package:flutter_application_1/pages/perfil_home.dart';
 import 'package:flutter_application_1/widgets/userCard_widgets.dart';
 
 class HomePage extends StatefulWidget {
@@ -52,10 +53,17 @@ class _HomePageState extends State<HomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        
-        child: _getUsers()
-       
-      
+        child: 
+          ElevatedButton(
+            onPressed: () {
+            Navigator.push(
+            context,
+            MaterialPageRoute(
+            builder: (context) => PerfilHome()),
+            );
+            },
+            child: const Text('Siguiente')),
+           
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
