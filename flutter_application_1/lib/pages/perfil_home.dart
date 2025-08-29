@@ -3,25 +3,39 @@ import 'package:flutter_application_1/models/user_model.dart';
 import 'package:flutter_application_1/widgets/userCard_widgets.dart';
 
 class PerfilHome extends StatelessWidget {
-   PerfilHome({super.key});
+   const PerfilHome({super.key, required this.user});
 
-  UserModel user = UserModel(name: "Sandra", age: 15, category: "menor de edad");
+  final UserModel user;
 
-  @override
+  @overridef
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Profile page'),
+      appBar: AppBar(title: const Text('Perfil')),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const SizedBox(height: 20),
+              CircleAvatar(
+                radius: 60,
+                backgroundImage: NetworkImage(user.image),
+              ),
+              const SizedBox(height: 20),
+              Text("Nombre: ${user.name}", style: const TextStyle(fontSize: 18)),
+              Text("Edad: ${user.age}", style: const TextStyle(fontSize: 18)),
+              Text("Categoría: ${user.category}", style: const TextStyle(fontSize: 18)),
+
+              const Divider(height: 40, thickness: 2),
+
+              Text("📍 Dirección: ${user.address ?? 'No registrada'}", style: const TextStyle(fontSize: 16)),
+              Text("✉️ Email: ${user.email ?? 'No disponible'}", style: const TextStyle(fontSize: 16)),
+              Text("📞 Teléfono: ${user.phone ?? 'No disponible'}", style: const TextStyle(fontSize: 16)),
+              Text("📝 Bio: ${user.bio ?? 'No especificada'}", style: const TextStyle(fontSize: 16)),
+            ],
+          ),
         ),
-      body: Center(
-        child: Container(
-          width: 200,
-          height: 200,
-          child: Center(
-            child: CardPrueba(user: user)
-            )
-            ),
-      )
-          );
+      ),
+    );
   }
 }
