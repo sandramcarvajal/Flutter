@@ -7,7 +7,7 @@ class PerfilHome extends StatelessWidget {
 
   final UserModel user;
 
-  @overridef
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Perfil')),
@@ -22,16 +22,16 @@ class PerfilHome extends StatelessWidget {
                 backgroundImage: NetworkImage(user.image),
               ),
               const SizedBox(height: 20),
-              Text("Nombre: ${user.name}", style: const TextStyle(fontSize: 18)),
+              Text("${user.name}", style: const TextStyle(fontSize: 18)),
               Text("Edad: ${user.age}", style: const TextStyle(fontSize: 18)),
-              Text("Categoría: ${user.category}", style: const TextStyle(fontSize: 18)),
+              Text("${user.category}", style: const TextStyle(fontSize: 18)),
 
               const Divider(height: 40, thickness: 2),
 
-              Text("📍 Dirección: ${user.address ?? 'No registrada'}", style: const TextStyle(fontSize: 16)),
-              Text("✉️ Email: ${user.email ?? 'No disponible'}", style: const TextStyle(fontSize: 16)),
-              Text("📞 Teléfono: ${user.phone ?? 'No disponible'}", style: const TextStyle(fontSize: 16)),
-              Text("📝 Bio: ${user.bio ?? 'No especificada'}", style: const TextStyle(fontSize: 16)),
+              Text("Dirección: ${user.address ?? 'No registrada'}", style: const TextStyle(fontSize: 16)),
+              Text("Email: ${user.email ?? 'No disponible'}", style: const TextStyle(fontSize: 16)),
+              Text("Teléfono: ${user.phone ?? 'No disponible'}", style: const TextStyle(fontSize: 16)),
+              Text("Quién soy: ${user.bio ?? 'No especificada'}", style: const TextStyle(fontSize: 16)),
             ],
           ),
         ),
