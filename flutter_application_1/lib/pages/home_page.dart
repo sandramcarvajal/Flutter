@@ -62,7 +62,7 @@ class _HomePageState extends State<HomePage> {
             builder: (context) => PerfilHome()),
             );
             },
-            child: const Text('Siguiente')),
+            child: const Text('perfil')),
            
       ),
       floatingActionButton: FloatingActionButton(
